@@ -25,7 +25,7 @@ infer = dict(
     ),
     runner=dict(
         type=LocalRunner,
-        max_num_workers=64,
+        max_num_workers=1,
         task=dict(type=OpenICLInferTask),
         retry=5
     ),
