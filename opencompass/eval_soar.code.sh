@@ -14,8 +14,8 @@ conda activate soar
 cp ../generate.soar.py ../generate.py
 python run.py llada_instruct_gen_humaneval_length512_block512_logits.py -w outputs/llada_instruct_gen_humaneval_length512_block512_logits_soar
 
-cp ../generate.soar.py ../generate.py
-python run.py llada_instruct_gen_mbpp_length512_block512_confidence.py -w outputs/llada_instruct_gen_mbpp_length512_block512_confidence_soar
+# cp ../generate.soar.py ../generate.py
+# python run.py llada_instruct_gen_mbpp_length512_block512_confidence.py -w outputs/llada_instruct_gen_mbpp_length512_block512_confidence_soar
 
 # cp ../generate.soar.py ../generate.py
 # python run.py llada_instruct_gen_gsm8k_length512_block512_confidence.py -w outputs/llada_instruct_gen_gsm8k_length512_block512_confidence_soar
