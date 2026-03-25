@@ -16,7 +16,7 @@ infer = dict(
     partitioner=dict(
         type=NumWorkerPartitioner,
         num_worker=8,    
-        num_split=None,   
+        num_split=1,   
         min_task_size=16, 
     ),
     runner=dict(

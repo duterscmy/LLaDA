@@ -1,16 +1,12 @@
 from mmengine.config import read_base
-
-# 验证导入路径
-import opencompass
-print(f"Using opencompass from: {opencompass.__file__}")
 with read_base():
-    from opencompass.configs.datasets.humaneval.humaneval_gen_8e312c import \
-        humaneval_datasets
+    from opencompass.configs.datasets.gsm8k.gsm8k_gen import \
+        gsm8k_datasets
     from opencompass.configs.models.dllm.llada_instruct_8b import \
         models as llada_instruct_8b_models
-datasets = humaneval_datasets
+datasets = gsm8k_datasets
 models = llada_instruct_8b_models
-eval_cfg = {'gen_blocksize': 256, 'gen_length': 256, 'gen_steps': 256, 'batch_size_': 1, 'batch_size': 1, 'diff_confidence_eos_eot_inf': False, 'diff_logits_eos_inf': True}
+eval_cfg = {'gen_blocksize': 256, 'gen_length': 256, 'gen_steps': 256, 'batch_size':1, 'batch_size_':1, 'diff_confidence_eos_eot_inf': True, 'diff_logits_eos_inf': False}
 for model in models:
     model.update(eval_cfg)
 from opencompass.partitioners import NumWorkerPartitioner
@@ -25,7 +21,7 @@ infer = dict(
     ),
     runner=dict(
         type=LocalRunner,
-        max_num_workers=1,
+        max_num_workers=64,
         task=dict(type=OpenICLInferTask),
         retry=5
     ),

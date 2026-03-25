@@ -40,7 +40,7 @@ def get_num_transfer_tokens(mask_index, steps):
     return num_transfer_tokens
 
 def generate(model, prompt, steps=128, gen_length=128, block_length=128, temperature=0.,
-                        cfg_scale=0., remasking='low_confidence', mask_id=126336, max_beam_size=2, log=False):
+                        cfg_scale=0., remasking='low_confidence', mask_id=126336, max_beam_size=2, log=False, logits_eos_inf=False, confidence_eos_eot_inf=False):
     '''
     Args:
         model: Mask predictor.
@@ -128,9 +128,14 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
             else:
                 batch_logits = model(batch_sequences).logits
         
+        if logits_eos_inf:
+            batch_logits[:, :, 126081] = -torch.inf
         # 为每个序列添加Gumbel噪声并获取预测
         logits_with_noise = add_gumbel_noise(batch_logits, temperature=temperature)
         batch_x0 = torch.argmax(logits_with_noise, dim=-1)
+        
+        if confidence_eos_eot_inf:
+            logits_with_noise[:, :, 126081] = logits[:, :, 126348] = -torch.inf
         
         if remasking == 'low_confidence':
             p = F.softmax(batch_logits, dim=-1)
