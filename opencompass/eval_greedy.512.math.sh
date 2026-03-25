@@ -1,5 +1,5 @@
 
-#!/bin/bash
+#! /bin/bash
 #SBATCH --job-name="soar_eval"
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
