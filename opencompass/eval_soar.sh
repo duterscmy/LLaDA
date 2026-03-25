@@ -11,8 +11,8 @@
 source ~/.bashrc # 你的环境名
 conda activate soar
 
-cp ../generate.soar.py ../generate.py
-python run.py llada_instruct_gen_humaneval_length256_block256_logits.py -w outputs/llada_instruct_gen_humaneval_length256_block256_logits_soar
+# cp ../generate.soar.py ../generate.py
+# python run.py llada_instruct_gen_humaneval_length256_block256_logits.py -w outputs/llada_instruct_gen_humaneval_length256_block256_logits_soar
 
 cp ../generate.soar.py ../generate.py
 python run.py llada_instruct_gen_mbpp_length256_block256_confidence.py -w outputs/llada_instruct_gen_mbpp_length256_block256_confidence_soar
