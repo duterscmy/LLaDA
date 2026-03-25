@@ -135,7 +135,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         batch_x0 = torch.argmax(logits_with_noise, dim=-1)
         
         if confidence_eos_eot_inf:
-            logits_with_noise[:, :, 126081] = logits[:, :, 126348] = -torch.inf
+            logits_with_noise[:, :, 126081] = batch_logits[:, :, 126348] = -torch.inf
         
         if remasking == 'low_confidence':
             p = F.softmax(batch_logits, dim=-1)
