@@ -1,4 +1,15 @@
 from mmengine.config import read_base
+import os
+import sys
+# 将本地 opencompass 的父目录插入到最前面
+local_path = '/lus/lfs1aip2/projects/public/u6er/mingyu/llada/opencompass'
+if local_path in sys.path:
+    sys.path.remove(local_path)
+sys.path.insert(0, local_path)
+
+# 验证导入路径
+import opencompass
+print(f"Using opencompass from: {opencompass.__file__}")
 with read_base():
     from opencompass.configs.datasets.humaneval.humaneval_gen_8e312c import \
         humaneval_datasets
