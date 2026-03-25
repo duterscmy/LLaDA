@@ -41,7 +41,7 @@ def get_num_transfer_tokens(mask_index, steps):
 
 
 def generate(model, prompt, steps=128, gen_length=128, block_length=128, temperature=0.,
-             cfg_scale=0., remasking='low_confidence', mask_id=126336, log=False):
+             cfg_scale=0., remasking='low_confidence', mask_id=126336, log=False, logits_eos_inf=False, confidence_eos_eot_inf=False):
     '''
     Args:
         model: Mask predictor.
@@ -105,9 +105,15 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
             else:
                 logits = model(x).logits
 
+            if logits_eos_inf:
+                logits[:, :, 126081] = -torch.inf
+
             logits_with_noise = add_gumbel_noise(logits, temperature=temperature)
             x0 = torch.argmax(logits_with_noise, dim=-1) # b, l
 
+            if confidence_eos_eot_inf:
+                logits_with_noise[:, :, 126081] = logits[:, :, 126348] = -torch.inf
+                
             if remasking == 'low_confidence':
                 p = F.softmax(logits, dim=-1)
                 x0_p = torch.squeeze(
