@@ -1,1 +1,1 @@
-python run.py llada_instruct_gen_humaneval_length256_block256_logits.py -w outputs/llada_instruct_gen_humaneval_length256_block256_logits
+python run.py examples/llada_instruct_gen_humaneval_length256_block256_logits.py -w outputs/llada_instruct_gen_humaneval_length256_block256_logits
