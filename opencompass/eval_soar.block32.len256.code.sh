@@ -17,5 +17,5 @@ python run.py llada_instruct_gen_humaneval_length256_block32.py -w outputs/llada
 cp ../generate.soar.py ../generate.py
 python run.py llada_instruct_gen_mbpp_length256_block32.py -w outputs/llada_instruct_gen_mbpp_length256_block32_confidence_soar095
 
-cp ../generate.soar.py ../generate.py
-python run.py llada_instruct_gen_gsm8k_length256_block32.py -w outputs/llada_instruct_gen_gsm8k_length256_block32_confidence_soar095
+# cp ../generate.soar.py ../generate.py
+# python run.py llada_instruct_gen_gsm8k_length256_block32.py -w outputs/llada_instruct_gen_gsm8k_length256_block32_confidence_soar095
