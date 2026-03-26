@@ -54,6 +54,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         mask_id: The toke id of [MASK] is 126336.
         max_beam_size: Maximum beam size for dynamic beam search.
     '''
+    print("======soar====")
     import json
     
     # 配置参数
@@ -95,9 +96,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         
         # 如果没有mask了，提前结束
         if not has_remaining_masks:
-            if log:
-                print(f"No masks remaining in any beam, early stopping at step {global_step + 1}")
-                
+            print(f"No masks remaining in any beam, early stopping at step {global_step + 1}")
             break
         
         # 批量收集所有beam中的序列

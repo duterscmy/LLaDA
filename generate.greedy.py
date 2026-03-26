@@ -55,6 +55,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         mask_id: The toke id of [MASK] is 126336.
     '''
     import json
+    print("======greedy====")
     
     x = torch.full((1, prompt.shape[1] + gen_length), mask_id, dtype=torch.long).to(model.device)
     x[:, :prompt.shape[1]] = prompt.clone()
