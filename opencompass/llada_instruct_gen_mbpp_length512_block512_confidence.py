@@ -6,7 +6,7 @@ with read_base():
         models as llada_instruct_8b_models
 datasets = mbpp_datasets
 models = llada_instruct_8b_models
-eval_cfg = {'gen_blocksize': 512, 'gen_length': 512, 'gen_steps': 512, 'batch_size':1, 'batch_size_':1, 'diff_confidence_eos_eot_inf': True, 'diff_logits_eos_inf': False}
+eval_cfg = {'gen_blocksize': 512, 'gen_length': 512, 'gen_steps': 512, 'batch_size':1, 'batch_size_':1, 'diff_confidence_eos_eot_inf': False, 'diff_logits_eos_inf': False}
 for model in models:
     model.update(eval_cfg)
 from opencompass.partitioners import NumWorkerPartitioner
