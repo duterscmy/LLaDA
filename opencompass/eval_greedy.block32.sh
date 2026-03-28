@@ -12,7 +12,7 @@ source ~/.bashrc # 你的环境名
 conda activate soar
 
 cp ../generate.greedy.py ../generate.py
-python run.py llada_instruct_gen_humaneval_length256_block32.py -w outputs/llada_instruct_gen_humaneval_length256_block32_logits_greedy
+python run.py llada_instruct_gen_humaneval_length256_block32.py -w outputs/llada_instruct_gen_humaneval_length256_block32_logits_greedy_tmp0.5
 
 # cp ../generate.greedy.py ../generate.py
 # python run.py llada_instruct_gen_mbpp_length256_block32.py -w outputs/llada_instruct_gen_mbpp_length256_block32_confidence_greedy

@@ -54,7 +54,8 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         mask_id: The toke id of [MASK] is 126336.
         max_beam_size: Maximum beam size for dynamic beam search.
     '''
-    print("======soar====")
+    temperature=0.5
+    print("======soar, temperature: {:.1f}====".format(temperature))
     import json
     
     # 配置参数
