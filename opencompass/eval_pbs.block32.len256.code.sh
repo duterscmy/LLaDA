@@ -12,10 +12,10 @@ source ~/.bashrc # 你的环境名
 conda activate soar
 
 cp ../generate.pbs.py ../generate.py
-python run.py llada_instruct_gen_humaneval_length256_block32.py -w outputs/llada_instruct_gen_humaneval_length256_block32_logits_pbs
+python run.py llada_instruct_gen_humaneval_length256_block32.py -w outputs/llada_instruct_gen_humaneval_length256_block32_logits_pbs_tmp0.5
 
-cp ../generate.pbs.py ../generate.py
-python run.py llada_instruct_gen_mbpp_length256_block32.py -w outputs/llada_instruct_gen_mbpp_length256_block32_confidence_pbs
+# cp ../generate.pbs.py ../generate.py
+# python run.py llada_instruct_gen_mbpp_length256_block32.py -w outputs/llada_instruct_gen_mbpp_length256_block32_confidence_pbs
 
 # cp ../generate.pbs.py ../generate.py
 # python run.py llada_instruct_gen_gsm8k_length256_block32.py -w outputs/llada_instruct_gen_gsm8k_length256_block32_confidence_pbs

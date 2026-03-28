@@ -56,7 +56,8 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
         beam_size: Beam size for beam search.
     '''
     import json
-    print("======PBS====")
+    temperature=0.5
+    print("======PBS, temperature: {:.1f}====".format(temperature))
     # 初始化beam: [(sequence, cumulative_log_prob, block_progress, records)]
     x = torch.full((1, prompt.shape[1] + gen_length), mask_id, dtype=torch.long).to(model.device)
     x[:, :prompt.shape[1]] = prompt.clone()
