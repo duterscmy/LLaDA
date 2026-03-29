@@ -18,4 +18,4 @@ conda activate soar
 # python run.py llada_instruct_gen_mbpp_length256_block32.py -w outputs/llada_instruct_gen_mbpp_length256_block32_confidence_greedy
 
 cp ../generate.greedy.py ../generate.py
-yes -y | python run.py llada_instruct_gen_gsm8k_length256_block32.py -w outputs/llada_instruct_gen_gsm8k_length256_block32_confidence_greedy_justgrpo
+python run.py llada_instruct_gen_gsm8k_length256_block32.py -w outputs/llada_instruct_gen_gsm8k_length256_block32_confidence_greedy_justgrpo

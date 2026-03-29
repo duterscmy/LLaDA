@@ -188,6 +188,7 @@ class LLaDAModel(BaseModel):
     def _load_tokenizer(self, path: str, tokenizer_path: Optional[str],
                         tokenizer_kwargs: dict):
         from transformers import AutoTokenizer
+        tokenizer_kwargs["trust_remote_code"] = True
         self.tokenizer = AutoTokenizer.from_pretrained(
             tokenizer_path if tokenizer_path else path, **tokenizer_kwargs)
 
@@ -261,7 +262,7 @@ class LLaDAModel(BaseModel):
             self.model = AutoModelForCausalLM.from_pretrained(
                 path, trust_remote_code = True,**model_kwargs)
         except ValueError:
-            self.model = AutoModel.from_pretrained(path, **model_kwargs)
+            self.model = AutoModel.from_pretrained(path, trust_remote_code = True, **model_kwargs)
 
         if peft_path is not None:
             from peft import PeftModel
