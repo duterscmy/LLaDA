@@ -187,15 +187,11 @@ class LLaDAModel(BaseModel):
 
     def _load_tokenizer(self, path: str, tokenizer_path: Optional[str],
                         tokenizer_kwargs: dict):
-        from transformers import AutoTokenizer, Qwen2TokenizerFast
-        tokenizer_kwargs["trust_remote_code"] = True
+        from transformers import AutoTokenizer
+        # tokenizer_kwargs["trust_remote_code"] = True
         load_path = tokenizer_path if tokenizer_path else path
-        try:
-            self.tokenizer = AutoTokenizer.from_pretrained(
-                load_path, **tokenizer_kwargs)
-        except KeyError:
-            self.tokenizer = Qwen2TokenizerFast.from_pretrained(
-                load_path, **tokenizer_kwargs)
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            load_path, **tokenizer_kwargs)
 
         # A patch for some models without pad_token_id
         if self.pad_token_id is not None:
