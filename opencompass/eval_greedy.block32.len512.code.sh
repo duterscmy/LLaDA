@@ -12,10 +12,10 @@ source ~/.bashrc # 你的环境名
 conda activate soar
 
 cp ../generate.greedy.py ../generate.py
-python run.py llada_instruct_gen_humaneval_length512_block32.py -w outputs/llada_instruct_gen_humaneval_length512_block32_logits_greedy
+python run.py llada_instruct_gen_humaneval_length512_block32.py -w outputs/llada_instruct_gen_humaneval_length512_block32_logits_greedy_justgrpo
 
-# cp ../generate.greedy.py ../generate.py
-# python run.py llada_instruct_gen_mbpp_length512_block32.py -w outputs/llada_instruct_gen_mbpp_length512_block32_confidence_greedy
+cp ../generate.greedy.py ../generate.py
+python run.py llada_instruct_gen_mbpp_length512_block32.py -w outputs/llada_instruct_gen_mbpp_length512_block32_confidence_greedy_justgrpo
 
 # cp ../generate.greedy.py ../generate.py
 # python run.py llada_instruct_gen_gsm8k_length512_block32.py -w outputs/llada_instruct_gen_gsm8k_length512_block32_confidence_greedy

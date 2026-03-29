@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name="soar_eval"
+#SBATCH --job-name="greedy_eval"
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1                # 请求2块GPU
