@@ -7,6 +7,7 @@ models = [
         path='/lus/lfs1aip2/projects/public/u6er/mingyu/models/LLaDA-Instruct-JustGRPO-GSM8K',
         max_out_len=1024,
         batch_size=1,
+        trust_remote_code=True,
         run_cfg=dict(num_gpus=1),
     )
 ]

@@ -56,7 +56,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
     '''
     import json
 
-    temperature = 0.5
+    # temperature = 0.5
     print("======greedy, temperature: {:.1f}====".format(temperature))
     
     x = torch.full((1, prompt.shape[1] + gen_length), mask_id, dtype=torch.long).to(model.device)
