@@ -59,7 +59,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
     import json
     
     # 配置参数
-    confidence_threshold = 0.98  # 高置信度阈值
+    confidence_threshold = 1.0  # 高置信度阈值
     min_parallel_tokens = 1      # 并行解码最小token数
     max_parallel_tokens = 5      # 并行解码最大token数
     
@@ -186,7 +186,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
                 print(f"Block {current_block} mask confidences: {block_mask_confidence.cpu().float().detach().numpy().tolist()}")
             
             # 策略选择：检查是否有足够的高置信度token进行并行解码
-            high_confidence_mask = block_mask_confidence > confidence_threshold
+            high_confidence_mask = block_mask_confidence >= confidence_threshold
             high_confidence_indices = torch.where(high_confidence_mask)[0]
             
             if len(high_confidence_indices) >= min_parallel_tokens:
