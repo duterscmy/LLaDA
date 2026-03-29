@@ -59,7 +59,7 @@ def generate(model, prompt, steps=128, gen_length=128, block_length=128, tempera
     import json
     
     # 配置参数
-    confidence_threshold = 0.95  # 高置信度阈值
+    confidence_threshold = 0.995  # 高置信度阈值
     min_parallel_tokens = 1      # 并行解码最小token数
     max_parallel_tokens = 5      # 并行解码最大token数
     
